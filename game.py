@@ -278,17 +278,17 @@ class Menu:
 # Класс хранилища всех ресурсов игры
 class Storage:
     def __init__(self):
-        self.taxi_images = load_images("taxi",6, 125, 250)
-        self.road_images = load_images("road",10, 1000, 700)
+        self.taxi_images = load_images("taxi",6, 150, 300)
+        self.road_images = load_images("road",2, 1200, 700)
         self.cars_images = [load_images("car_blue", 6, 125, 250),
                             load_images("car_green", 6, 125, 250),
                             load_images("car_lightblue", 6, 125, 250),
                             load_images("car_red", 6, 125, 250)]
-        self.humans_images = [load_images("human_v1_", 7, 100, 100),
-                              load_images("human_v2_", 7, 100, 100),
-                              load_images("human_v3_", 7, 100, 100),
-                              load_images("human_v4_", 7, 100, 100),]
-        self.button_image = load_image("button2", 300, 100)
+        self.humans_images = []
+        for i in [1,2,3,4,5,6,7,8,9,10,11,12]:
+            self.humans_images.append(load_images(f"human_v{i}_", 7, 100, 100))
+        self.buttonblue_images = load_images("buttonblue", 2, 170, 92)
+        self.buttonred_images = load_images("buttonred", 2, 170, 92)
         self.fade_image = load_image("fade", WIDTH, HEIGHT)
         self.fade_image.set_alpha(100)
         font_path = resource_path(os.path.join("venv\\Sprites\\", "TaxiDriver.ttf"))
@@ -302,7 +302,7 @@ class GameManager:
     def __init__(self):
         self.in_game = True
         self.in_pause = False
-        self.game_speed = 2 + score_board.scores/ 10
+        self.game_speed = 2 + score_board.scores / 10
 
     def update(self):
         self.game_speed = 2 + score_board.scores / 10
