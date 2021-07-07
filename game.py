@@ -315,26 +315,6 @@ class Button:
     def draw(self):
         screen.blit(self.image, self.rect)
 
-# Класс меню(кнопки продолжить и выйти)
-# class Menu:
-#     def __init__(self):
-#         self.local_x = 400
-#         self.local_y = 200
-#         self.buttons = [Button(storage.button_image, "Countinue", self.local_x + 20, self.local_y + 20, self.to_game),
-#                         Button(storage.button_image, "Exit", self.local_x + 20, self.local_y + 120, self.exit)]
-#
-#     def draw(self):
-#         screen.blit(storage.fade_image, storage.fade_image.get_rect())
-#         for button in self.buttons:
-#             button.draw()
-#
-#     def to_game(self):
-#         game_manager.in_pause = False
-#         game_manager.in_game = True
-#
-#     def exit(self):
-#         sys.exit()
-
 # Класс хранилища всех ресурсов игры
 class Storage:
     def __init__(self):
